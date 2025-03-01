@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARCUS KELLII</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color:#B8860B;
+            opacity: 0.80;
+            color: white;
+            padding: 0.5rem 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            background-image: url('logo2.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .about-section {
+            font-family: 'Playfair Display', serif;
+            color: #333;
+            line-height: 1.6;
+            background-image: url('bg.jpg'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem;
+        }
+        .category {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            opacity: 0;
+            transition: transform 1s ease-out, opacity 1s ease-out;
+            width: 200px;
+        }
+        .category:nth-child(odd) {
+            transform: translateX(-100%);
+        }
+        .category:nth-child(even) {
+            transform: translateX(100%);
+        }
+        .category.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .category img {
+            width: 100%;
+            height: auto;
+        }
+        .contact {
+            padding: 2rem;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">FOR COUPLES</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html">About</a>
+            <a href="index.html">Contact</a>
+        </nav>
+    </header>
+    <section class="categories">
+        <div class="category">
+            <img src="c1.jpg" alt="design-1">
+            <h3>ROBO-PAIR</h3>
+        </div>
+        <div class="category">
+            <img src="c2.jpg" alt="design-2">
+            <h3>PUPPY-PAIR</h3>
+        </div>
+        <div class="category">
+            <img src="c3.jpg" alt="design-3">
+            <h3>HEART-PIECE</h3>
+        </div>
+        <div class="category">
+            <img src="c4.jpg" alt="design-4">
+            <h3>BLACK AND WHITE</h3>
+        </div>
+        <div class="category">
+            <img src="c5.jpg" alt="design-5">
+            <h3>BLACK-PAIR</h3>
+        </div>
+    </section>
+    <br>
+    <center>
+        <h1>AND MORE</h1>
+    </center>
+    <br>
+    <footer>
+        <p>&copy; 2025 MARCUS KELLII . All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const categories = document.querySelectorAll(".category");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            categories.forEach(category => {
+                observer.observe(category);
+            });
+        });
+    </script>
+</body>
+</html>
